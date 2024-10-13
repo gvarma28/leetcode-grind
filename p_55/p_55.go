@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// problem_url
+// https://leetcode.com/problems/jump-game/description/
 func main() {
 	nums := []int{2, 3, 1, 1, 4}
 	res := canJump(nums)
