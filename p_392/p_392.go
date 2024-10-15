@@ -22,8 +22,5 @@ func isSubsequence(s string, t string) bool {
 		q++
 	}
 
-	if p == n {
-		return true
-	}
-	return false
+	return p == n
 }
