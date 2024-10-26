@@ -20,7 +20,7 @@ func removeSubfolders(folder []string) []string {
 	res := []string{}
 out:
 	for _, val := range folder {
-		dirArr := strings.Split(val, "/")
+		dirArr := strings.Split(strings.Trim(val, "/"), "/")
 
 		var curPath strings.Builder
 		dirArrLen := len(dirArr)
