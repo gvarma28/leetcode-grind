@@ -2,49 +2,76 @@ package main
 
 import (
 	"fmt"
+	// "strconv"
 	"strings"
 )
 
-// problem_url
+// https://leetcode.com/problems/add-binary/description/
 func main() {
-	res := addBinary("11", "1")
+	res := addBinary("10100", "1111")
 	fmt.Println(res)
 }
 
 func addBinary(a string, b string) string {
-	res := ""
+	var res strings.Builder
 
 	lenA := len(a)
 	lenB := len(b)
 
 	carry := 0
 
-	for i := 0; i < max(lenA, lenB); i++ {
-		curA := ""
-		curB := ""
-		
-		if i < lenA && string(a[i]) == "1" {
-			curA = string(a[i])
-		}
-		if i < lenB {
-			curB = string(b[i])
+	p := lenA - 1
+	q := lenB - 1
+
+	for {
+		if p < 0 && q < 0 {
+			break
 		}
 
-		
+		sum := carry
+		if p >= 0 && a[p] == '1' {
+			sum += 1
+		}
+		if q >= 0 && b[q] == '1' {
+			sum += 1
+		}
 
-
+		if sum > 1 {
+			carry = 1
+		} else {
+			carry = 0
+		}
+		if sum == 1 || sum == 3 {
+			res.WriteString("1")
+		} else {
+			res.WriteString("0")
+		}
+		p--
+		q--
 	}
 
-
-	return res
-}
-
-func max(a int, b int) int {
-	if a > b {
-		return a
+	if carry > 0 {
+		res.WriteString("1")
 	}
-	return b;
+
+	return reverse(res.String())
 }
+
+func reverse(s string) string {
+	runes := []rune(s)
+	p, q := 0, len(runes)-1
+
+	for {
+		if p >= q {
+			break
+		}
+		runes[p], runes[q] = runes[q], runes[p]
+		p++
+		q--
+	}
+	return string(runes)
+}
+
 
 // func binaryToDecimal(a string) int64 {
 // 	var res int64 = 0
