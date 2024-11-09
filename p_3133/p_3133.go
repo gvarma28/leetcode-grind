@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// problem_url
+// https://leetcode.com/problems/minimum-array-end/description/
 func main() {
 	res := minEnd(2, 7)
 	fmt.Println(res)
