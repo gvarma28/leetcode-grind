@@ -5,3 +5,9 @@ Run `cd scripts && ./create_file.sh` and `Enter Problem Number` to create the co
 Run `go run <filename>.go` to execute a solution.
 
 `CFOT` : `Could Further Optimise This`
+
+<!--
+  Skipped on:
+    10/11/2024 - long day
+    11/11/2024 - long day
+-->
